@@ -64,10 +64,6 @@ struct TaskListView: View {
                     .onDelete(perform: $completedTasks.remove)
                 } header: {
                     Text("Complete")
-                    //        } footer: {
-                    //          if !completedTasks.isEmpty {
-                    //            Text("Swipe from right to left to delete a task.")
-                    //          }
                 }
             }
             . listRowSeparator(. hidden)
