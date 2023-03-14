@@ -70,11 +70,27 @@ struct TaskListView: View {
             newTaskButton
         }
         .toolbar {
-            ToolbarItem(placement: .principal)  {
+            ToolbarItemGroup() {
                 Image(colorScheme == .dark ? "LogoDarkMode" : "LogoStandardMode")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100)
+                Button {
+                    allowNotifications()
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    
+                }label:{
+                    Image(systemName: "bell.fill")
+                        .foregroundColor(.black)
+                }
+                
+                Button {
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    
+                }label:{
+                    Image(systemName: "bell")
+                        .foregroundColor(.black)
+                }
             }
         }
         .listStyle(.plain)
@@ -86,6 +102,17 @@ struct TaskListView: View {
 extension TaskListView {
     func openNewTask() {
         addTaskViewPresented.toggle()
+    }
+    
+    func allowNotifications() {
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                if success {
+                    print("big boy alert")
+                } else if error != nil {
+                    print("error")
+                }
+            }
     }
 }
 

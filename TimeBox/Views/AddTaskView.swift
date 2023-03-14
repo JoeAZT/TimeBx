@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import UserNotifications
 
 struct AddTaskView: View {
     @Environment(\.dismiss) var dismiss
@@ -35,7 +36,8 @@ struct AddTaskView: View {
                 .padding(.leading, 10)
                 
                 Button {
-                    save()
+                    saveToRealm()
+                    setNotifications(task: taskObject)
                 } label: {
                     Text("Save")
                         .bold()
@@ -62,7 +64,7 @@ struct AddTaskView: View {
             }
             .padding(.horizontal)
             .onAppear {
-                UIDatePicker.appearance().minuteInterval = 5
+                UIDatePicker.appearance().minuteInterval = 1
             }
         }
     }
@@ -70,13 +72,34 @@ struct AddTaskView: View {
 
 // MARK: - Actions
 extension AddTaskView {
-    func save() {
+    func saveToRealm() {
         try? realm.write {
             realm.add(taskObject)
         }
         dismiss()
     }
+    
+    func setNotifications(task: Task) {
+        let content = UNMutableNotificationContent()
+        content.title = "TimeBx"
+        content.subtitle = "\(task.title) - \(DateString().dateFormat(date: taskObject.startTime))"
+        content.sound = UNNotificationSound.default
+        
+        let components = Calendar.current.dateComponents([.hour, .minute], from: task.startTime)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        UNUserNotificationCenter.current().add(.init(identifier: "Notification", content: content, trigger: trigger))
+    }
 }
+
+//let dateArray = realm.objects(Task.self)
+//let sorted = dateArray.sorted(by: { $0.startTime.compare($1.startTime) == .orderedDescending })
+//realm.deleteAll()
+//try? realm.write {
+//    for tasks in sorted {
+//        realm.add(tasks)
+//    }
+//}
+//print(sorted)
 
 //extension AddTaskView {
 //  func sort() {
