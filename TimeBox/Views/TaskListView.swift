@@ -70,27 +70,29 @@ struct TaskListView: View {
             newTaskButton
         }
         .toolbar {
-            ToolbarItemGroup() {
-                Image(colorScheme == .dark ? "LogoDarkMode" : "LogoStandardMode")
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Image(colorScheme == .dark ? "darklogo" : "logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100)
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     allowNotifications()
-                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    //                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                     
                 }label:{
                     Image(systemName: "bell.fill")
-                        .foregroundColor(.black)
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
                 }
                 
-                Button {
-                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                    
-                }label:{
-                    Image(systemName: "bell")
-                        .foregroundColor(.black)
-                }
+//                Button {
+//                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//
+//                }label:{
+//                    Image(systemName: "bell")
+//                        .foregroundColor(.black)
+//                }
             }
         }
         .listStyle(.plain)

@@ -64,7 +64,7 @@ struct AddTaskView: View {
             }
             .padding(.horizontal)
             .onAppear {
-                UIDatePicker.appearance().minuteInterval = 1
+                UIDatePicker.appearance().minuteInterval = 15
             }
         }
     }
@@ -87,7 +87,7 @@ extension AddTaskView {
         
         let components = Calendar.current.dateComponents([.hour, .minute], from: task.startTime)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-        UNUserNotificationCenter.current().add(.init(identifier: "Notification", content: content, trigger: trigger))
+        UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: trigger))
     }
 }
 
