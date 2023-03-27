@@ -77,21 +77,13 @@ struct TaskListView: View {
                     .frame(width: 100)
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    allowNotifications()
-                    //                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                    
-                }label:{
-                    Image(systemName: "bell.fill")
-                        .foregroundColor(colorScheme == .dark ? .white : .black)
-                }
-                
 //                Button {
-//                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//
+//                    allowNotifications()
+//                                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//                    
 //                }label:{
-//                    Image(systemName: "bell")
-//                        .foregroundColor(.black)
+//                    Image(systemName: "bell.fill")
+//                        .foregroundColor(colorScheme == .dark ? .white : .black)
 //                }
             }
         }
@@ -116,6 +108,11 @@ extension TaskListView {
                 }
             }
     }
+    
+    func deleteAllNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+    
 }
 
 struct TaskListView_Previews: PreviewProvider {

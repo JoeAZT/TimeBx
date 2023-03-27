@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//Create a widget for the tasks so you can see what the current task is and time remaining?
+
 struct ContentView: View {
   var body: some View {
     NavigationView {
