@@ -22,15 +22,21 @@ struct TaskListView: View {
         where: { $0.completed == true }
     ) var completedTasks
     
+    //Add Button
     @ViewBuilder var newTaskButton: some View {
         Button(action: openNewTask) {
-            Text("+")
-                .font(.system(size: 30, weight: .bold))
-                .foregroundColor(colorScheme == .dark ? .black : .white)
-                .padding(.horizontal, 10)
-                .padding(.bottom, 5)
-                .background(colorScheme == .dark ? .white : .black)
-                .cornerRadius(10)
+            HStack {
+                Spacer()
+                Text("+")
+                    .font(.system(size: 30, weight: .bold))
+                    .foregroundColor(colorScheme == .dark ? .black : .white)
+                    .padding(8)
+                Spacer()
+            }
+            .background(colorScheme == .dark ? .white : .black)
+            .cornerRadius(15)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 10)
         }
         .sheet(isPresented: $addTaskViewPresented) {
             AddTaskView(taskObject: Task())
@@ -69,6 +75,8 @@ struct TaskListView: View {
             . listRowSeparator(. hidden)
             newTaskButton
         }
+        
+        //Button Title
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarLeading) {
                 Image(colorScheme == .dark ? "darklogo" : "logo")
@@ -76,15 +84,18 @@ struct TaskListView: View {
                     .scaledToFit()
                     .frame(width: 100)
             }
+            
+            //Notification button
             ToolbarItem(placement: .navigationBarTrailing) {
-//                Button {
-//                    allowNotifications()
-//                                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//                    
-//                }label:{
-//                    Image(systemName: "bell.fill")
-//                        .foregroundColor(colorScheme == .dark ? .white : .black)
-//                }
+                Button {
+                    allowNotifications()
+                                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    
+                }label:{
+                    Image(systemName: "bell.fill")
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                }
+                
             }
         }
         .listStyle(.plain)
