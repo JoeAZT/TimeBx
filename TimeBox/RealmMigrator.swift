@@ -12,14 +12,10 @@ enum RealmMigrator {
     migration: Migration,
     oldSchemaVersion: UInt64
   ) {
-    if oldSchemaVersion < 1 {
-      migration.enumerateObjects(ofType: Task.className()) { _, newObject in
-        newObject?["colorOption"] = ColorOptions.green
-      }
-    }
+
   }
 
   static var configuration: Realm.Configuration {
-    Realm.Configuration(schemaVersion: 1, migrationBlock: migrationBlock)
+    Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
   }
 }

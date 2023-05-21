@@ -19,7 +19,6 @@
 		717FC1E529A903A9005954EF /* DateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FC1E429A903A9005954EF /* DateString.swift */; };
 		717FC1E729A903BD005954EF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FC1E629A903BD005954EF /* Task.swift */; };
 		717FC1E929A903D7005954EF /* RealmMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FC1E829A903D7005954EF /* RealmMigrator.swift */; };
-		717FC1EB29A90472005954EF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FC1EA29A90472005954EF /* Colors.swift */; };
 		717FC1ED29A90542005954EF /* TaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FC1EC29A90542005954EF /* TaskMock.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		717FC1E429A903A9005954EF /* DateString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateString.swift; sourceTree = "<group>"; };
 		717FC1E629A903BD005954EF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		717FC1E829A903D7005954EF /* RealmMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrator.swift; sourceTree = "<group>"; };
-		717FC1EA29A90472005954EF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		717FC1EC29A90542005954EF /* TaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMock.swift; sourceTree = "<group>"; };
 		71FF8ED629ABDE9D00ECADF1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -91,7 +89,6 @@
 				717FC1E629A903BD005954EF /* Task.swift */,
 				717FC1EC29A90542005954EF /* TaskMock.swift */,
 				717FC1E829A903D7005954EF /* RealmMigrator.swift */,
-				717FC1EA29A90472005954EF /* Colors.swift */,
 				717FC1E129A901FC005954EF /* Views */,
 				717FC1CE29A8DED9005954EF /* Assets.xcassets */,
 				717FC1D029A8DED9005954EF /* Preview Content */,
@@ -206,7 +203,6 @@
 			files = (
 				717FC1ED29A90542005954EF /* TaskMock.swift in Sources */,
 				717FC1E329A90348005954EF /* TaskRowView.swift in Sources */,
-				717FC1EB29A90472005954EF /* Colors.swift in Sources */,
 				717FC1CD29A8DED8005954EF /* ContentView.swift in Sources */,
 				717FC1E529A903A9005954EF /* DateString.swift in Sources */,
 				717FC1CB29A8DED8005954EF /* TimeBoxApp.swift in Sources */,
@@ -356,7 +352,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taylor.zanre.joe.TimeBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -387,7 +383,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taylor.zanre.joe.TimeBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

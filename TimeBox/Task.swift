@@ -14,11 +14,4 @@ class Task: Object, ObjectKeyIdentifiable {
     @Persisted var startTime = Date()
     @Persisted var endTime = Date()
     @Persisted var completed = false
-    @Persisted var colorOption = ColorOptions.green
-}
-
-extension Task {
-    var color: Color {
-        colorOption.color
-    }
 }

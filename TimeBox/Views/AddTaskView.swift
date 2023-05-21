@@ -86,7 +86,7 @@ extension AddTaskView {
         content.sound = UNNotificationSound.default
         
         let components = Calendar.current.dateComponents([.hour, .minute], from: task.startTime)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         UNUserNotificationCenter.current().add(.init(identifier: UUID().uuidString, content: content, trigger: trigger))
     }
 }
